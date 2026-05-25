@@ -1,4 +1,5 @@
 
+import os
 
 class Book:
     def __init__(self, title, author, is_borrowed=False):
@@ -19,6 +20,8 @@ Status : {status}
 class Library:
     def __init__(self):
         self.books = []
+        self.file_name = 'books.txt'
+        self.load_books()
 
     def add_books(self):
 
@@ -28,6 +31,7 @@ class Library:
         new_book = Book(title, author)
 
         self.books.append(new_book)
+        self.save_books()
 
         print('Book added successfully...')
 
@@ -73,6 +77,7 @@ class Library:
                 if not book.is_borrowed:
 
                     book.is_borrowed = True
+                    self.save_books()
 
                     print('Book borrowed successfully..')
 
@@ -93,6 +98,7 @@ class Library:
                 if book.is_borrowed:
                     
                     book.is_borrowed = False
+                    self.save_books()
 
                     print('Book returned successfully!!')
 
@@ -111,10 +117,43 @@ class Library:
             if book.title.lower() == title.lower():
 
                 self.books.remove(book)
+                self.save_books()
 
                 print('Book removed succesfully!!')
-            else:
-                print('Book not found!!!')
+                return
+        print('Book not found!!!')
+
+#=================File handling methods=============#
+
+    def save_books(self):
+
+        with open(self.file_name, 'w')as file:
+
+            for book in self.books:
+
+                file.write(
+                    f'{book.title},{book.author},{book.is_borrowed}\n'
+                )
+
+    def load_books(self):
+
+        if not os.path.exists(self.file_name):
+            return
+
+        with open(self.file_name, 'r') as file:
+
+            for line in file:
+
+                data = line.strip().split(',')
+
+                if data ==0:
+
+                    title = data[0]
+                    author = data[1]
+                    is_borrowed = data[2]
+
+                    book = Book(title, author, is_borrowed)
+                    self.books.append(book)
 
 library = Library()
 

@@ -68,7 +68,7 @@ while True:
             print('result is: ',div(num1,num2))
 
         elif option=='6':
-            print(f'The Power of the {num1} is: ',pow(num1,num2))
+            print(f'Power of the {num1} is: ',pow(num1,num2))
 
     elif option in('5','7','8','9','10'):
         num=float(input('Enter a number: '))

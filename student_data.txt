@@ -13,3 +13,8 @@ Marks :[45, 67, 43]
 Average: 51.666666666666664
 Grade: FAIL
 
+Name: irfana
+Marks :[67, 89, 67]
+Average: 74.33333333333333
+Grade: C+
+

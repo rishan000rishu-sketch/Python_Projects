@@ -11,6 +11,17 @@ def calculate_grade(avg):
         return 'D'
     else:
         return 'FAIL'
+    
+def save_data():
+    if name in student:
+            avg=sum(mark)/len(mark)
+            grade=calculate_grade(avg)
+
+    with open('student_data.txt','a') as file: #here used 'a' for append datas in this file without delete old data
+
+            file.write(
+                f'Name: {name}\nMarks :{mark}\nAverage: {avg}\nGrade: {grade}\n\n'
+            )
 
 while True:
     print('1. Add Student')
@@ -33,6 +44,7 @@ while True:
             mark.append(m)
 
         student[name]=mark
+        save_data()
         print('student added succesfully')
 
     elif choice=='2':

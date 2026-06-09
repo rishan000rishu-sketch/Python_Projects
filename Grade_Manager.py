@@ -1,3 +1,5 @@
+import os
+
 student={}
 
 def calculate_grade(avg):
@@ -23,6 +25,24 @@ def save_data():
                 f'Name: {name}\nMarks :{mark}\nAverage: {avg}\nGrade: {grade}\n\n'
             )
 
+def load_data():
+
+    if not os.path.exists('student_data.txt'):
+        return
+
+    with open('student_data.txt', 'r') as file:
+        lines = file.readlines()
+
+    for i in range(0, len(lines), 5):
+
+        if i + 3 < len(lines):
+
+            name = lines[i].split(':')[1].strip()
+
+            marks = eval(lines[i+1].split(':')[1].strip())
+
+            student[name] = marks
+
 while True:
     print('1. Add Student')
     print('2. Search student')
@@ -32,6 +52,7 @@ while True:
     print('6. show topper')
     print('7. exit')
 
+    load_data()
     choice=input('Enter your choice: ')
 
     if choice=='1':
@@ -51,6 +72,7 @@ while True:
         name=input('Enter student name to search: ')
 
         if name in student:
+            mark = student[name]
             avg=sum(mark)/len(mark)
             grade=calculate_grade(avg)
 
@@ -59,15 +81,18 @@ while True:
             print('average: ',avg)
             print('grade: ',grade)
 
+        else:
+            print('Student not found!')
+
     elif choice=='3':
         if not student:
-            print('no students found')
+            print('No students found')
         else:
             for name,mark in student.items():
                 avg = sum(mark) / len(mark)
                 grade = calculate_grade(avg)
 
-                print('name: ', name)
+                print('\nname: ', name)
                 print('mark: ', mark)
                 print('average: ', avg)
                 print('grade: ', grade)

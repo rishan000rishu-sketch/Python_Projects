@@ -115,7 +115,13 @@ while True:
         confirm=input('Are you sure? (yes or no)')
         if confirm.lower()=='yes':
             student.clear()
-            print('all data cleared')
+
+            with open('student_data.txt','w')as file:
+                pass
+                print('all data cleared')
+
+        else:
+            print('Operation cancelled!')
 
     elif choice=='6':
         load_data()

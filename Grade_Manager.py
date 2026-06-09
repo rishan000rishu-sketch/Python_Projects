@@ -15,31 +15,35 @@ def calculate_grade(avg):
         return 'FAIL'
     
 def save_data():
-    if name in student:
-            avg=sum(mark)/len(mark)
-            grade=calculate_grade(avg)
 
     with open('student_data.txt','a') as file: #here used 'a' for append datas in this file without delete old data
 
+        for name, mark in student.items():
+            avg=sum(mark)/len(mark)
+            grade=calculate_grade(avg)
+            
             file.write(
                 f'Name: {name}\nMarks :{mark}\nAverage: {avg}\nGrade: {grade}\n\n'
             )
 
 def load_data():
 
-    if not os.path.exists('student_data.txt'):
+    student.clear()
+
+    if not os.path.exists("student_data.txt"):
         return
 
-    with open('student_data.txt', 'r') as file:
+    with open("student_data.txt", "r") as file:
+
         lines = file.readlines()
 
     for i in range(0, len(lines), 5):
 
-        if i + 3 < len(lines):
+        if i + 1 < len(lines):
 
-            name = lines[i].split(':')[1].strip()
+            name = lines[i].split(":")[1].strip()
 
-            marks = eval(lines[i+1].split(':')[1].strip())
+            marks = eval(lines[i+1].split(":")[1].strip())
 
             student[name] = marks
 
@@ -52,7 +56,6 @@ while True:
     print('6. show topper')
     print('7. exit')
 
-    load_data()
     choice=input('Enter your choice: ')
 
     if choice=='1':
@@ -85,6 +88,7 @@ while True:
             print('Student not found!')
 
     elif choice=='3':
+        load_data()
         if not student:
             print('No students found')
         else:
@@ -98,9 +102,11 @@ while True:
                 print('grade: ', grade)
 
     elif choice=='4':
+        load_data()
         name=input('Enter student name to remove: ')
         if name in student:
             del student[name]
+            save_data()
             print('student removed succesfully')
         else:
             print('no students found')
@@ -112,6 +118,7 @@ while True:
             print('all data cleared')
 
     elif choice=='6':
+        load_data()
         if not student:
             print('no students found')
         else:

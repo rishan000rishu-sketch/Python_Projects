@@ -23,6 +23,32 @@ def view_contacts():
             print('Phone: ',phone)
             print('-' *20)
 
+def search_contact():
+
+    name = input('Enter contact name: ')
+    
+    if name in contacts:
+        phone = contacts[name]
+
+        print('\nName: ',name)
+        print('Phone: ',phone)
+
+    else:
+        print('Contact not found!')
+
+def delete_contact():
+
+    name = input('Enter contact name: ')
+
+    if name in contacts:
+
+        del contacts[name]
+        print('Contact deleted successfully...')
+
+    else:
+
+        print('Contact not found!')
+
 
 while True:
 
@@ -37,5 +63,18 @@ while True:
 
     if option =='1':
         add_contact()
+
     elif option =='2':
         view_contacts()
+
+    elif option =='3':
+        search_contact()
+
+    elif option =='4':
+        delete_contact()
+
+    elif option =='5':
+        break
+    
+    else:
+        print('Please choose a valid option!!')

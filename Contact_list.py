@@ -42,36 +42,60 @@ def view_contacts():
 
 def search_contact():
 
+    load_data()
     name = input('Enter contact name: ')
     
     if name in contacts:
-        phone = contacts[name]
 
         print('\nName: ',name)
-        print('Phone: ',phone)
+        print('Phone: ',contacts[name])
 
     else:
         print('Contact not found!')
 
 def delete_contact():
-
+    
+    load_data()
     name = input('Enter contact name: ')
 
-    with open(file_name, 'r')as file:
-        
-        lines = file.readlines()
+    if name in contacts:
 
-    with open(file_name, 'w')as file:
+        del contacts[name]
+        save_data()
 
-        for line in lines:
+        print('Contact deleted..')
+    else:
+        print('Contact not found !')
 
-            if f'Name: {name},'not in line:
+def load_data():
 
-                file.write(line)
-        print('Contact deleted successfully..')
+    if not os.path.exists(file_name):
         return
-    print('Contact not found !')
+    
+    try:
+        
+        with open(file_name, 'r')as file:
 
+            for line in file:
+
+                parts = line.strip().split(',')
+
+                name = parts[0].split(':')[1].strip()
+
+                phone = parts[1].split(':')[1].strip()
+
+                contacts[name] = phone
+
+    except FileNotFoundError:
+        pass
+
+def save_data():
+
+    with open(file_name,'w')as file:
+
+        for name,phone in contacts.items():
+
+            file.write(f'Name: {name},Phone: {phone}\n')
 
 while True:
 

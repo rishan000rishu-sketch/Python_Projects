@@ -1,5 +1,7 @@
 contacts = {}
 
+file_name = 'contact.txt'
+
 def add_contact():
 
     name = input('Enter contact name: ')
@@ -7,6 +9,19 @@ def add_contact():
 
     contacts[name] = phone
 
+    with open(file_name, 'r') as file:
+
+        for line in file:
+
+            if f'Name: {name},Phone: {phone}'== line.strip():
+
+                print('\nContact already exists !')
+                return
+
+    with open(file_name, 'a') as file:
+
+            file.write(f'Name: {name},Phone: {phone}\n')
+    
     print('Contact added successfully')
 
 def view_contacts():
@@ -49,10 +64,10 @@ def delete_contact():
 
         print('Contact not found!')
 
-
 while True:
 
     print('''
+=======CONTACT BOOK=======\n
 1. Add Contact
 2. View all contacts
 3. Search Contact
@@ -63,7 +78,7 @@ while True:
 
     if option =='1':
         add_contact()
-
+ 
     elif option =='2':
         view_contacts()
 

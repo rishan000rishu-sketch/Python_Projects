@@ -6,27 +6,23 @@ file_name = 'contact.txt'
 
 def add_contact():
 
+    load_data()
+
     name = input('Enter contact name: ')
     phone = int(input('Enter phone number: '))
 
-    contacts[name] = phone
+    if name in contacts:
+        print('Contact already Exists !')
 
-    with open(file_name, 'r') as file:
+    else:
+        contacts[name] = phone
+        save_data()
 
-        for line in file:
-
-            if f'Name: {name},Phone: {phone}'== line.strip():
-
-                print('\nContact already exists !')
-                return
-
-    with open(file_name, 'a') as file:
-
-            file.write(f'Name: {name},Phone: {phone}\n')
-    
-    print('Contact added successfully')
+        print('Contact Added successfully...')
 
 def view_contacts():
+
+    load_data()
 
     if len(contacts) ==0:
         print('No contacts found!')

@@ -1,3 +1,5 @@
+import os
+
 contacts = {}
 
 file_name = 'contact.txt'
@@ -55,14 +57,21 @@ def delete_contact():
 
     name = input('Enter contact name: ')
 
-    if name in contacts:
+    with open(file_name, 'r')as file:
+        
+        lines = file.readlines()
 
-        del contacts[name]
-        print('Contact deleted successfully...')
+    with open(file_name, 'w')as file:
 
-    else:
+        for line in lines:
 
-        print('Contact not found!')
+            if f'Name: {name},'not in line:
+
+                file.write(line)
+        print('Contact deleted successfully..')
+        return
+    print('Contact not found !')
+
 
 while True:
 

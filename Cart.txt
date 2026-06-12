@@ -1,0 +1,4 @@
+Name: charger,Price: 1200
+Name: laptop,Price: 45000
+Name: mobile,Price: 34000
+Name: pc,Price: 134000

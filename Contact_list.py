@@ -63,6 +63,24 @@ def delete_contact():
     else:
         print('Contact not found !')
 
+def update_contact():
+
+    load_data()
+
+    name = input('Enter contact name: ')
+    
+    if name in contacts:
+        print('\nContact Found !\n')
+
+        new_phone = int(input('Enter new Contact number: '))
+
+        contacts[name] = new_phone
+        save_data()
+
+        print('Updated successfully !')
+
+
+
 def load_data():
 
     if not os.path.exists(file_name):
@@ -101,7 +119,8 @@ while True:
 2. View all contacts
 3. Search Contact
 4. Delete Contact
-5. Exit''')
+5. Update Contact
+6. Exit''')
         
     option = input('Enter your option: ')
 
@@ -118,6 +137,9 @@ while True:
         delete_contact()
 
     elif option =='5':
+        update_contact()
+
+    elif option =='6':
         break
     
     else:

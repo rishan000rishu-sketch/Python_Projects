@@ -65,6 +65,24 @@ def category_report():
 
         print(category,':',amount) 
 
+def export_csv():
+
+    with open('expenses.csv', 'w', newline='') as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow(['Date','Category','Amount'])
+
+        for expense in expenses:
+
+            writer.writerow([
+                expense['Date'],
+                expense['Category'],
+                expense['Amount']
+            ])
+
+    print('Exported successfully !')
+
 while True:
 
     print("\n===== Expense Tracker =====\n")

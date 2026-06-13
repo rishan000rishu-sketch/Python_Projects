@@ -33,6 +33,47 @@ def add_rooms():
     save_room_data()
     print('Room data saved..')
 
+def view_rooms():
+
+    load_room_data()
+
+    for room in rooms:
+
+        print('Room No: ',room['Room no'])
+        print('Room Type: ',room['Room type'])
+        print(f'Room Price: ,{room['Room price']}\n')
+
+def edit_rooms():
+
+    load_room_data()
+
+    room_no = int(input('Enter room no to edit: '))
+
+    found = False
+
+    for room in rooms:
+
+        if room['Room no'] == room_no:
+
+            found = True
+
+            print('===Current Room===\n')
+            print('Room No: ',room['Room no'])
+            print('Room Type: ',room['Room type'])
+            print(f'Room Price: ,{room['Room price']}\n')
+            
+            room['Room type'] = input('Enter room type: ')
+            room['Room price'] = int(input('Enter room price: '))
+            break
+
+    if found:
+
+        save_room_data()
+        print('Room Data updated..')
+
+    else:
+
+        print('Room not found\n')
 
 def save_room_data():
 
@@ -82,3 +123,15 @@ while True:
 
     if choice =='1':
         add_rooms()
+
+    elif choice =='2':
+        view_rooms()
+
+    elif choice =='3':
+        edit_rooms()
+
+    elif choice =='4':
+        print('\nExiting...')
+        
+    else:
+        print('Choose a valid choice: ')

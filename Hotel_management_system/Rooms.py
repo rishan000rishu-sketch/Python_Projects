@@ -21,7 +21,7 @@ def add_rooms():
 
     room_type = input('Enter room type: (single/double/etc..) ')
     room_price = int(input('Enter room price: '))
-    is_available = False
+    is_available = 'Available'
 
     room = {
         'Room no':room_no,

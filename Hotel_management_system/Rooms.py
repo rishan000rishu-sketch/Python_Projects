@@ -21,11 +21,13 @@ def add_rooms():
 
     room_type = input('Enter room type: (single/double/etc..) ')
     room_price = int(input('Enter room price: '))
+    is_available = False
 
     room = {
         'Room no':room_no,
         'Room type':room_type,
-        'Room price':room_price
+        'Room price':room_price,
+        'Room status':is_available
     }
 
     rooms.append(room)
@@ -42,6 +44,7 @@ def view_rooms():
         print('Room No: ',room['Room no'])
         print('Room Type: ',room['Room type'])
         print(f'Room Price: ,{room['Room price']}\n')
+        print('Room status: ',room['Room status'])
 
 def edit_rooms():
 
@@ -75,20 +78,35 @@ def edit_rooms():
 
         print('Room not found\n')
 
+def clear_data():
+
+    load_room_data()
+
+    confirm = input('Are you sure? (yes/no): ')
+
+    if confirm.lower() == 'yes':
+
+        with open(file_name, 'w') as file:
+            pass
+        print('Data cleared successfully..')
+    else:
+        return
+    
 def save_room_data():
 
     with open(file_name, 'w', newline='')as file:
 
         writer = csv.writer(file)
 
-        writer.writerow(['Room no','Room type','Room price'])
+        writer.writerow(['Room no','Room type','Room price','Room status'])
 
         for room in rooms:
 
             writer.writerow([
                 room['Room no'],
                 room['Room type'],
-                room['Room price']
+                room['Room price'],
+                room['Room status']
             ])
 
 def load_room_data():
@@ -105,7 +123,8 @@ def load_room_data():
                 rooms.append({
                     'Room no': int(row['Room no']),
                     'Room type': row['Room type'],
-                    'Room price': int(row['Room price'])
+                    'Room price': int(row['Room price']),
+                    'Room status': row['Room status']
                 })
     
     except FileNotFoundError:
@@ -117,7 +136,8 @@ while True:
 1. Add Rooms
 2. View Rooms
 3. Edit Room Details
-4. Exit''')
+4. Clear Room Data
+5. Exit''')
     
     choice = input('Enter your choice: ')
 
@@ -131,6 +151,9 @@ while True:
         edit_rooms()
 
     elif choice =='4':
+        clear_data()
+
+    elif choice =='5':
         print('\nExiting...')
         
     else:

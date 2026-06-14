@@ -19,7 +19,7 @@ def add_rooms():
             print('Room already exists !')
             return
 
-    room_type = input('Enter room type: (single/double) ')
+    room_type = input('Enter room type: (single/double/etc..) ')
     room_price = int(input('Enter room price: '))
 
     room = {

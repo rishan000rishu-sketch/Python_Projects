@@ -130,31 +130,33 @@ def load_room_data():
     except FileNotFoundError:
         pass
 
+if __name__ == '__main__':     #This used for solve this menu opening in another files running period..
 
-while True:
-    print('''
+    while True:
+        print('''
 1. Add Rooms
 2. View Rooms
 3. Edit Room Details
 4. Clear Room Data
 5. Exit''')
-    
-    choice = input('Enter your choice: ')
-
-    if choice =='1':
-        add_rooms()
-
-    elif choice =='2':
-        view_rooms()
-
-    elif choice =='3':
-        edit_rooms()
-
-    elif choice =='4':
-        clear_data()
-
-    elif choice =='5':
-        print('\nExiting...')
         
-    else:
-        print('Choose a valid choice: ')
+        choice = input('Enter your choice: ')
+
+        if choice =='1':
+            add_rooms()
+
+        elif choice =='2':
+            view_rooms()
+
+        elif choice =='3':
+            edit_rooms()
+
+        elif choice =='4':
+            clear_data()
+
+        elif choice =='5':
+            print('\nExiting...')
+            break
+            
+        else:
+            print('Choose a valid choice: ')

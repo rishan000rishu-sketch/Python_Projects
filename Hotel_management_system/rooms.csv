@@ -1,11 +1,13 @@
 Room no,Room type,Room price,Room status
-1,single,600,False
-2,single,600,False
-3,double,1200,False
-4,double,1200,False
-5,single with pool,1000,False
-6,single with pool,1000,False
-7,double with pool,1600,False
-8,double with pool,1600,False
-9,family resort with private pool,5500,False
-10,family private resort,6500,False
+1,single,600,Available
+2,single,600,Available
+3,single,600,Available
+4,double,1200,Available
+5,double,1200,Available
+6,double,1200,Available
+7,single with pool,1000,Available
+8,single with pool,1000,Available
+9,double with pool,1600,Available
+10,double with pool,1600,Available
+11,private fimily suit,4500,Available
+12,private family suit,4500,Available

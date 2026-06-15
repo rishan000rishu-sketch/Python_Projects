@@ -43,8 +43,8 @@ def view_rooms():
 
         print('Room No: ',room['Room no'])
         print('Room Type: ',room['Room type'])
-        print(f'Room Price: ,{room['Room price']}\n')
-        print('Room status: ',room['Room status'])
+        print('Room Price: ',room['Room price'])
+        print(f'Room status: {room['Room status']}\n')
 
 def edit_rooms():
 

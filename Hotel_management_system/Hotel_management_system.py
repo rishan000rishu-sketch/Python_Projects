@@ -1,3 +1,4 @@
+
 from Rooms import rooms, load_room_data, save_room_data
 from datetime import datetime
 import os
@@ -134,7 +135,33 @@ def save_bill(room_no, price, days, total):
             price,
             days,
             total
-        ])            
+        ]) 
+
+def view_bills():
+
+    try:
+        with open(bill_file, 'r') as file:
+
+            reader = csv.reader(file)
+
+            for row in reader:
+                print(row)
+
+    except FileNotFoundError:
+        print('NO Bills Found !')
+
+def view_customers():
+
+    try:
+        with open(customer_file, 'r')as file:
+
+            reader = csv.reader(file)
+
+            for row in reader:
+                print(row)
+
+    except FileNotFoundError:
+        print('No Customers Found !')
 
 while True:
 
@@ -143,7 +170,9 @@ while True:
     print("2. Book Room")
     print("3. Check In")
     print("4. Check Out")
-    print("5. Exit")
+    print('5. View Bills')
+    print('6. View Customers')
+    print("7. Exit")
 
     choice = input("Enter Choice: ")
 
@@ -159,7 +188,13 @@ while True:
     elif choice == "4":
         check_out()
 
-    elif choice == "5":
+    elif choice =='5':
+        view_bills()
+
+    elif choice =='6':
+        view_customers()
+
+    elif choice == "7":
         print("Thank You For Coming 😊")
         break
 

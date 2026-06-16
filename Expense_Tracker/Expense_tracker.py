@@ -1,10 +1,11 @@
 import csv
+from datetime import datetime
 
 expenses = []
 
 def add_expense():
 
-    date = input('Enter date (YYYY-MM-DD): ')
+    date = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
     category = input('Enter category: ')
     amount = float(input('Enter amount: '))
 

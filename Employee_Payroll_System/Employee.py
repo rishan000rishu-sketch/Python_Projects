@@ -31,3 +31,4 @@ class Employee:
             'Allowance': self.allowance,
             'Deductions': self.deductions
         }
+    

@@ -59,6 +59,30 @@ def book_room():
             
     print('Room Not Found !')
 
+def check_in():
+
+    load_room_data()
+
+    room_no = int(input('Enter Room No: '))
+
+    for room in rooms:
+
+        if room['Room no'] == room_no:
+
+            if room['Room status'] == 'Booked':
+                
+                room['Room status'] = 'Occupied'
+
+                save_room_data()
+                print('Room Check In Successful..')
+                return
+            
+            print('Room Not Booked !')
+            return
+
+    print('Room Not Found !')
+
+
 while True:
 
     print("\n===== HOTEL MANAGEMENT SYSTEM =====")
@@ -77,8 +101,8 @@ while True:
     elif choice == "2":
         book_room()
 
-    # elif choice == "3":
-    #     check_in()
+    elif choice == "3":
+        check_in()
 
     # elif choice == "4":
     #     check_out()

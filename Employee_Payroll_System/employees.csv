@@ -1,0 +1,51 @@
+Emp_ID,Name,Department,Designation,Basic Salary,Allowance,Deductions
+EMP001,Rishan,IT,Software Engineer,45000,5000,2000
+EMP002,Shadil,HR,HR Executive,35000,4000,1500
+EMP003,John,Finance,Accountant,40000,4500,1800
+EMP004,Alex,IT,Data Analyst,50000,6000,2500
+EMP005,Sara,Marketing,Marketing Executive,38000,3500,1200
+EMP006,David,Sales,Sales Executive,42000,5000,2000
+EMP007,Emma,IT,Python Developer,55000,7000,3000
+EMP008,Michael,Finance,Finance Analyst,48000,5500,2200
+EMP009,Sophia,HR,Recruiter,36000,4000,1500
+EMP010,Daniel,Sales,Sales Manager,65000,8000,3500
+EMP011,Olivia,Marketing,SEO Specialist,40000,4500,1800
+EMP012,James,IT,System Administrator,52000,6500,2800
+EMP013,William,Finance,Senior Accountant,58000,7000,3200
+EMP014,Ava,HR,HR Manager,60000,7500,3500
+EMP015,Benjamin,Sales,Sales Executive,43000,5000,2000
+EMP016,Mia,Marketing,Content Writer,37000,3500,1200
+EMP017,Ethan,IT,Data Scientist,70000,9000,4000
+EMP018,Charlotte,Finance,Auditor,50000,6000,2500
+EMP019,Lucas,HR,HR Executive,34000,4000,1400
+EMP020,Amelia,Sales,Sales Coordinator,39000,4500,1700
+EMP021,Henry,Marketing,Marketing Manager,62000,8000,3500
+EMP022,Evelyn,IT,Software Engineer,46000,5500,2200
+EMP023,Alexander,Finance,Accountant,42000,5000,2000
+EMP024,Harper,HR,Recruiter,37000,4200,1500
+EMP025,Elijah,Sales,Sales Executive,44000,5200,2100
+EMP026,Abigail,Marketing,Digital Marketer,41000,4800,1800
+EMP027,Matthew,IT,Python Developer,57000,7200,3000
+EMP028,Emily,Finance,Finance Analyst,49000,5800,2300
+EMP029,Joseph,HR,HR Assistant,32000,3500,1200
+EMP030,Elizabeth,Sales,Sales Manager,68000,8500,3800
+EMP031,Samuel,Marketing,SEO Specialist,42000,5000,1900
+EMP032,Sofia,IT,System Administrator,53000,6500,2800
+EMP033,David,Finance,Auditor,51000,6200,2600
+EMP034,Avery,HR,HR Manager,61000,7800,3500
+EMP035,Jackson,Sales,Sales Executive,45000,5300,2200
+EMP036,Ella,Marketing,Content Writer,38000,3600,1300
+EMP037,Sebastian,IT,Data Scientist,72000,9500,4200
+EMP038,Scarlett,Finance,Senior Accountant,60000,7500,3300
+EMP039,Jack,HR,Recruiter,38000,4200,1600
+EMP040,Grace,Sales,Sales Coordinator,40000,4600,1800
+EMP041,Owen,Marketing,Marketing Executive,39000,4200,1500
+EMP042,Chloe,IT,Software Engineer,47000,5600,2300
+EMP043,Gabriel,Finance,Accountant,43000,5100,2000
+EMP044,Lily,HR,HR Executive,35000,4000,1400
+EMP045,Carter,Sales,Sales Executive,46000,5400,2200
+EMP046,Aria,Marketing,Digital Marketer,43000,5000,1900
+EMP047,Wyatt,IT,Python Developer,58000,7300,3100
+EMP048,Zoey,Finance,Finance Analyst,50000,5900,2400
+EMP049,Julian,HR,HR Assistant,33000,3600,1200
+EMP050,Nora,Sales,Sales Manager,70000,9000,4000

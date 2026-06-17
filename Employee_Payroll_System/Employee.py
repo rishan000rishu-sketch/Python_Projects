@@ -27,7 +27,7 @@ class Employee:
             'Name': self.name,
             'Department': self.department,
             'Destination': self.destination,
-            'Basic Salary': self.basic_salary,
+            'Basic_Salary': self.basic_salary,
             'Allowance': self.allowance,
             'Deductions': self.deductions
         }

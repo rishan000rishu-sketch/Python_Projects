@@ -9,7 +9,7 @@ HEADERS = [
     'Name',
     'Department',
     'Destinstion',
-    'Basic Salary',
+    'Basic_Salary',
     'Allowance',
     'Deductions'
 ]

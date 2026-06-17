@@ -26,7 +26,7 @@ def add_employee(employee):
             writer = csv.DictWriter(file, fieldnames=HEADERS)
             writer.writerow(employee.to_dict())
 
-def get_all_employees(employee):
+def get_all_employees():
 
     employees  = []
 
@@ -37,3 +37,17 @@ def get_all_employees(employee):
             employees.append(row)
 
     return employees
+
+def update_employees(Emp_ID, updated_data):
+    employees = get_all_employees()
+
+    with open(FILE_NAME, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADERS)
+        
+        writer.writeheader()
+
+        for emp in employees:
+            if emp['Emp_ID'] == Emp_ID:
+                emp.update(updated_data)
+
+            writer.writerow(emp)

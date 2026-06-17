@@ -48,6 +48,27 @@ def update_employees(Emp_ID, updated_data):
 
         for emp in employees:
             if emp['Emp_ID'] == Emp_ID:
-                emp.update(updated_data)
+                emp.update(updated_data())
 
             writer.writerow(emp)
+
+def delete_employee(Emp_ID):
+    employees = get_all_employees()
+
+    with open(FILE_NAME, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADERS)
+
+        writer.writeheader()
+
+        for emp in employees:
+            if emp['Emp_ID'] != Emp_ID:
+                writer.writerow(emp)
+
+def search_employees(Emp_ID):
+    employees = get_all_employees()
+
+    for emp in employees:
+        if emp['Emp_ID'] == Emp_ID:
+            return emp
+        
+    return None

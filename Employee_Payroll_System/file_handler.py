@@ -2,13 +2,14 @@
 import os
 import csv
 
-FILE_NAME = 'employees.csv'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FILE_NAME = os.path.join(BASE_DIR, 'employees.csv')
 
 HEADERS = [
     'Emp_ID',
     'Name',
     'Department',
-    'Destinstion',
+    'Designation',
     'Basic_Salary',
     'Allowance',
     'Deductions'
@@ -21,10 +22,17 @@ def create_file():
             writer.writerow(HEADERS)
 
 def add_employee(employee):
-    if not os.path.exists(FILE_NAME):
-        with open(FILE_NAME, 'a', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=HEADERS)
-            writer.writerow(employee.to_dict())
+
+    file_exists = os.path.exists(FILE_NAME)
+
+    with open(FILE_NAME, 'a', newline='') as file:
+
+        writer = csv.DictWriter(file, fieldnames=HEADERS)
+
+        if not file_exists:
+            writer.writeheader()
+
+        writer.writerow(employee.to_dict())
 
 def get_all_employees():
 

@@ -6,7 +6,7 @@ class Employee:
         emp_id,
         name,
         department,
-        destination,
+        designation,
         basic_salary,
         allowance,
         deductions
@@ -15,7 +15,7 @@ class Employee:
         self.emp_id = emp_id
         self.name = name
         self.department = department
-        self.destination = destination
+        self.designation = designation
         self.basic_salary = basic_salary
         self.allowance = allowance
         self.deductions = deductions
@@ -26,7 +26,7 @@ class Employee:
             'Emp_ID': self.emp_id,
             'Name': self.name,
             'Department': self.department,
-            'Destination': self.destination,
+            'Designation': self.designation,
             'Basic_Salary': self.basic_salary,
             'Allowance': self.allowance,
             'Deductions': self.deductions

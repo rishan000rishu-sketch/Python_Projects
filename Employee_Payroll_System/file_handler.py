@@ -21,7 +21,7 @@ def create_file():
             writer = csv.writer(file)
             writer.writerow(HEADERS)
 
-def add_employee(employee):
+def add_employees(employee):
 
     file_exists = os.path.exists(FILE_NAME)
 
@@ -60,7 +60,7 @@ def update_employees(Emp_ID, updated_data):
 
             writer.writerow(emp)
 
-def delete_employee(Emp_ID):
+def delete_employees(Emp_ID):
     employees = get_all_employees()
 
     with open(FILE_NAME, 'w', newline='') as file:

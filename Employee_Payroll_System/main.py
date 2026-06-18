@@ -27,6 +27,30 @@ def add_new_employee():
     add_employee(employee)
     print('\nEmployee Added Successfully')
 
+def view_employees():
+
+    employees = get_all_employees()
+
+    if not employees:
+        print('\nEmployees Not Found !\n')
+        return
+    
+    for emp in employees:
+        print('-'*40)
+
+        for key, value in emp.items():
+            print(f'{key}: {value}')
+
+def search_employee():
+    
+    emp_id = input('Employee_ID: ')
+
+    employee = search_employee(emp_id)
+
+    if employee:
+        print(employee)
+    else:
+        print('\nEmployee Not Found')
 
 while True:
 
@@ -48,6 +72,11 @@ while True:
         if choice == "1":
             add_new_employee()
 
+        elif choice == '2':
+            view_employees()
+
+        elif choice == '3':
+            search_employee()
+
     except Exception as e:
         print(f"Error: {e}")
-        

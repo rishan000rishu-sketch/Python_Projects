@@ -1,6 +1,9 @@
 from employee import Employee
 from file_handler import *
 
+from payroll import Payroll
+from payslip import generate_slip
+
 create_file()
 
 def add_new_employee():
@@ -85,6 +88,25 @@ def delete_employee():
 
     print|('Employee Deleted.')
 
+def calculate_salary():
+
+    emp_id = input('Employee_ID: ')
+
+    employee =  search_employees(emp_id)
+
+    if employee:
+
+        gross, tax, net= Payroll.calculate_salary(employee)
+
+        print(f'\nSalary Details Of {employee['Name']}')
+        print('-' *30,'\n')
+        print(f'Gross_Salary : {gross:.2f}')
+        print(f'Tax          : {tax:.2f}')
+        print(f'Net_Salary   : {net:.2f}')
+
+    else:
+        print('Employee Not Found !')
+        
 
 while True:
 
@@ -117,6 +139,9 @@ while True:
 
         elif choice =='5':
             delete_employee()
+
+        elif choice == '6':
+            calculate_salary()
 
     except Exception as e:
         print(f"Error: {e}")

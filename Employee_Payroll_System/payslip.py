@@ -5,10 +5,14 @@ def generate_slip(employee):
 
     tax, gross_salary, net_salary = Payroll.calculate_salary(employee)
 
-    if os.path.exists('payslips'):
-        os.mkdir('payslips')
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    file_name = f'payslips/payslip_{employee['Emp_ID']}.txt'
+    PAYSLIP_DIR = os.path.join(BASE_DIR, 'payslips')
+
+    if not os.path.exists(PAYSLIP_DIR):
+        os.mkdir(PAYSLIP_DIR)
+
+    file_name = os.path.join(PAYSLIP_DIR, f'payslip_{employee['Emp_ID']}.txt')
 
     with open(file_name, 'w') as file:
 

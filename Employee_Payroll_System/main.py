@@ -106,6 +106,21 @@ def calculate_salary():
 
     else:
         print('Employee Not Found !')
+
+def create_payslip():
+
+    emp_id = input('Employee_ID: ')
+
+    employee = search_employees(emp_id)
+
+    if employee:
+
+        filename = generate_slip(employee)
+
+        print(f'Payslip Generated: {filename}')
+    
+    else:
+        print('Employee Not Found !')
         
 
 while True:
@@ -142,6 +157,15 @@ while True:
 
         elif choice == '6':
             calculate_salary()
+
+        elif choice == '7':
+            create_payslip()
+
+        elif choice == '8':
+            print('\nGood By 😊')
+
+        else:
+            print('Invalid Option !')
 
     except Exception as e:
         print(f"Error: {e}")

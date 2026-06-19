@@ -6,6 +6,15 @@ create_file()
 def add_new_employee():
 
     emp_id = input('Employee_ID: ')
+
+    employees = get_all_employees()
+
+    for emp in employees:
+
+        if emp['Emp_ID']==emp_id:
+            print('\nEmployee ID Already Existed !')
+            return
+        
     name = input('Name: ')
     department = input('Department: ')
     designation = input('Designation: ')
@@ -24,7 +33,7 @@ def add_new_employee():
         deductions
     )
 
-    add_employee(employee)
+    add_employees(employee)
     print('\nEmployee Added Successfully')
 
 def view_employees():
@@ -45,12 +54,37 @@ def search_employee():
     
     emp_id = input('Employee_ID: ')
 
-    employee = search_employee(emp_id)
+    employee = search_employees(emp_id)
 
     if employee:
         print(employee)
     else:
         print('\nEmployee Not Found')
+
+def update_employee():
+
+    emp_id = input('Employee_ID: ')
+
+    employees= get_all_employees()
+
+    if not employees:
+        print('Employee Is Not Found !')
+        return
+    
+    new_department = input('Enter New Department: ')
+
+    update_employees(emp_id,{"Department": new_department})
+
+    print('Employee Updated.')
+
+def delete_employee():
+
+    emp_id = input('Employee_ID: ')
+
+    delete_employees(emp_id)
+
+    print|('Employee Deleted.')
+
 
 while True:
 
@@ -77,6 +111,12 @@ while True:
 
         elif choice == '3':
             search_employee()
+
+        elif choice == '4':
+            update_employee()
+
+        elif choice =='5':
+            delete_employee()
 
     except Exception as e:
         print(f"Error: {e}")

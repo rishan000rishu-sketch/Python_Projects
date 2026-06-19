@@ -1,0 +1,16 @@
+==========================
+     EMPLOYEE PAYSLIP
+==========================
+Employee_ID   :  EMP021
+Name          :  Henry
+Department    :  Marketing
+Designation   :  Marketing Manager
+
+Basic_Salary  :  62000
+Allowance     :  8000
+Deductions    :  3500
+
+Gross_Salary  :  7000.00
+Tax           :  59500.00
+Net_Salary    :  70000.00
+==========================

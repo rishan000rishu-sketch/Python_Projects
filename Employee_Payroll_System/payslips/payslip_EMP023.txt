@@ -1,0 +1,16 @@
+==========================
+     EMPLOYEE PAYSLIP
+==========================
+Employee_ID   :  EMP023
+Name          :  Alexander
+Department    :  Finance
+Designation   :  Accountant
+
+Basic_Salary  :  42000
+Allowance     :  5000
+Deductions    :  2000
+
+Gross_Salary  :  2350.00
+Tax           :  42650.00
+Net_Salary    :  47000.00
+==========================

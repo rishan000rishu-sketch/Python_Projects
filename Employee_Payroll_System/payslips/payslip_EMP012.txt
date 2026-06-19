@@ -1,0 +1,16 @@
+==========================
+     EMPLOYEE PAYSLIP
+==========================
+Employee_ID   :  EMP012
+Name          :  James
+Department    :  IT
+Designation   :  System Administrator
+
+Basic_Salary  :  52000
+Allowance     :  6500
+Deductions    :  2800
+
+Gross_Salary  :  5850.00
+Tax           :  49850.00
+Net_Salary    :  58500.00
+==========================

@@ -150,5 +150,5 @@ def update_patients():
 
         writer.writeheader()
         writer.writerows(rows)
-    print(rows)
-    print('Patient Updated Successfully.')
+
+    print('\nPatient Updated Successfully.')

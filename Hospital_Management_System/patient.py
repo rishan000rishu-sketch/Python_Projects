@@ -51,7 +51,6 @@ def add_patient():
     with open(PATIENT_FILE, 'a', newline='') as file:
         writer = csv.writer(file)
 
-        writer.writerow(HEADER)
         writer.writerow([
             patient_id,
             name,
@@ -61,3 +60,21 @@ def add_patient():
         ])
 
     print('Patient Added Successfully.')
+
+def view_patients():
+
+    with open(PATIENT_FILE, 'r',) as file:
+        reader = csv.DictReader(file)
+
+        print('\n------PATIENTS------')
+
+        for row in reader:
+            
+            print(
+                f'{row['patient_id']} | '
+                f'{row['name']} | '
+                f'{row['age']} | '
+                f'{row['phone']} | '
+                f'{row['phone']} | '
+            )
+view_patients()

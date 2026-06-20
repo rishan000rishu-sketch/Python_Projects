@@ -77,4 +77,45 @@ def view_patients():
                 f'{row['phone']} | '
                 f'{row['phone']} | '
             )
-view_patients()
+
+def search_patients():
+
+    patient_id = input('Enter Patient_ID: ')
+
+    with open(PATIENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['patient_id'] == patient_id:
+
+                print('\nPatient Found !')
+                print(row)
+
+
+def delete_patients():
+
+    patient_id  = input('Enter Patient_ID: ')
+
+    rows = []
+    found = False
+
+    with open(PATIENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['patient_id'] == patient_id:
+                found = True
+            else:
+                rows.append(row)
+
+    if not found:
+        print('Patient Not Found !')
+        return
+    
+    with open(PATIENT_FILE, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADER)
+
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print('\nPatient Deleted Successfully !')

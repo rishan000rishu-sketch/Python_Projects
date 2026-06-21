@@ -89,3 +89,34 @@ def search_doctor():
                 f'{row['phone']} | '
             )
                 
+def update_doctor():
+
+    doctor_id = input('Enter Doctor_ID: ')
+
+    rows = []
+    found =  False
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['doctor_id'] == doctor_id:
+                found = True
+
+                row['name'] = input('Enter New Name: ')
+                row['specialisation'] = input('Enter New Specialisation: ')
+                row['phone'] = input('Enter New Phone: ')
+
+            rows.append(row)
+
+    if not found:
+        print('\nDoctor Not Found !')
+
+    with open(DOCTOR_FILE, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADER)
+
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print('Doctor Updated Successfully.')
+update_doctor()

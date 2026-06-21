@@ -119,4 +119,31 @@ def update_doctor():
         writer.writerows(rows)
 
     print('Doctor Updated Successfully.')
-update_doctor()
+
+def delete_doctor():
+
+    doctor_id = input('Enter Doctor_ID: ')
+
+    rows = []
+    found = False
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['doctor_id'] == doctor_id:
+                found = True
+            else:
+                rows.append(row)
+
+    if not found:
+        print('\nDoctor Not Found !')
+
+    with open(DOCTOR_FILE, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADER)
+
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print('\nDoctor Deleted Successfully !')
+delete_doctor()

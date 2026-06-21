@@ -55,3 +55,37 @@ def add_doctor():
         ])
 
     print('Doctor Added Successfully.')
+
+def view_doctors():
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        print('\n--------DOCTORS--------')
+
+        for row in reader:
+
+            print(
+                f'{row['doctor_id']} | '
+                f'{row['name']} | '
+                f'{row['specialisation']} | '
+                f'{row['phone']} | '
+            )
+
+def search_doctor():
+
+    doctor_id = input('Enter Doctor_ID: ')
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['doctor_id'] == doctor_id:
+                
+                print(
+                f'{row['doctor_id']} | '
+                f'{row['name']} | '
+                f'{row['specialisation']} | '
+                f'{row['phone']} | '
+            )
+                

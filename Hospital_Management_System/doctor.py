@@ -20,3 +20,38 @@ def create_file():
         with open(DOCTOR_FILE, 'w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(HEADER)
+           
+def doctor_exists(doctor_id):
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['doctor_id'] == doctor_id:
+                return True            
+ 
+    return False
+
+def add_doctor():
+
+    doctor_id = input('Enter Doctor_ID: ')
+
+    if doctor_exists(doctor_id):
+        print('\nDoctor_ID Already Existed !')
+        return
+    
+    name = input('Enter Doctor Name: ')
+    specialisation = input('Enter Specialisation: ')
+    phone = int(input('Enter Phone No: '))
+
+    with open(DOCTOR_FILE, 'a', newline='') as file:
+        writer = csv.writer(file)
+
+        writer.writerow([
+            doctor_id,
+            name,
+            specialisation,
+            phone
+        ])
+
+    print('Doctor Added Successfully.')

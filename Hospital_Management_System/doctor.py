@@ -146,4 +146,3 @@ def delete_doctor():
         writer.writerows(rows)
 
     print('\nDoctor Deleted Successfully !')
-delete_doctor()

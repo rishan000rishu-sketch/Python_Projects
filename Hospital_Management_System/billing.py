@@ -89,4 +89,37 @@ def print_bill(bill_id,patient_id,consultation_fee,medicine_charge,lab_charge,to
 
     print(f'Total Amount      : {total_amount}')
     print('============================')
-    
+
+def view_bills():
+
+    print('\n------BILL RECORDS------')
+
+    with open(BILL_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            
+            print(f'{row['bill_id']} | ')
+            print(f'{row['patient_id']} | ')
+            print(f'{row['total_amount']}')
+
+def search_bill():
+
+    bill_id = input('Enter Bill_ID: ')
+
+    with open(BILL_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['bill_id'] == bill_id:
+                print('\nBill found.\n')
+
+                print(f'Bill_ID          : {row['bill_id']}')
+                print(f'Patient_ID       : {row['patient_id']}')
+                print(f'Consultation Fee : {row['consultation_fee']}')
+                print(f'Medicine Charge  : {row['medicine_charge']}')
+                print(f'Lab Charge       : {row['lab_charge']}')
+                print(f'Total Amount     : {row['total_amount']}')
+                return
+            
+    print('\nBill Not Found.')

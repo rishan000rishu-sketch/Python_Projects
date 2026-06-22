@@ -36,3 +36,57 @@ def patient_exists(patient_id):
                 return True
             
     return False
+
+def generate_bill():
+
+    bill_id = input('Enter Bill_ID: ')
+
+    patient_id = input('Enter Patient_ID: ')
+    if not patient_exists(patient_id):
+        print('Patient Not Found !')
+        return
+
+    consultation_fee = float(input('Enter Consultation Fee: '))
+
+    medicine_charge = float(input('Enter Medicine Charge: '))
+
+    lab_charge = float(input('Enter Lab Charge: '))
+
+    total_amount = (consultation_fee + medicine_charge + lab_charge)
+
+    with open(BILL_FILE, 'a', newline='') as file:
+        writer = csv.writer(file)
+
+        writer.writerow([
+            bill_id,
+            patient_id,
+            consultation_fee,
+            medicine_charge,
+            lab_charge,
+            total_amount
+        ])
+    print('\nBill Generated Successfully.')
+    print_bill(
+        bill_id,
+        patient_id,
+        consultation_fee,
+        medicine_charge,
+        lab_charge,
+        total_amount
+    )
+
+def print_bill(bill_id,patient_id,consultation_fee,medicine_charge,lab_charge,total_amount):
+
+    print('\n==========BILL==========')
+
+    print(f"Bill ID           : {bill_id}")
+    print(f"Patient ID        : {patient_id}")
+    print(f"Consultation Fee  : {consultation_fee}")
+    print(f"Medicine Charge   : {medicine_charge}")
+    print(f"Lab Charge        : {lab_charge}")
+
+    print("---------------------------")
+
+    print(f'Total Amount      : {total_amount}')
+    print('============================')
+    

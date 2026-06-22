@@ -26,3 +26,36 @@ def create_file():
             
             writer = csv.writer(file)
             writer.writerow(HEADER)
+
+def appoinment_exists(appoinment_id):
+
+    with open(APPOINMENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['appoinment_id'] == appoinment_id:
+                return True
+            
+    return False
+
+def patient_exists(patient_id):
+
+    with open(PATIENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['patient_id'] == patient_id:
+                return True
+            
+    return False
+
+def doctor_exists(doctor_id):
+
+    with open(DOCTOR_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['doctor_id'] == doctor_id:
+                return True
+            
+    return False

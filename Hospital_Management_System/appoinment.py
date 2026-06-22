@@ -126,3 +126,32 @@ def search_appoinments():
                 return
     
     print('Appoinment Not Found !')
+
+def cancel_appoinments():
+
+    appoinment_id = input('Enter Appoinment_ID: ')
+
+    rows = []
+    found = False
+
+    with open(APPOINMENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['appoinment_id'] == appoinment_id:
+                found = True
+            else:
+                rows.append(row)
+
+    if not found:
+        print('Appoinment Not Found !')
+        return
+    
+    with open(APPOINMENT_FILE, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADER)
+
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print('Appoinment Cancelled Successfully.')
+    

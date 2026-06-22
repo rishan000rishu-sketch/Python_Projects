@@ -92,4 +92,37 @@ def book_appoinment():
         ])
 
     print('\nAppoinment Booked Successfully.')
+
+def view_appoinments():
+
+    print('\n----------APPOINMENTS-----------')
+
+    with open(APPOINMENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+
+            print(
+                f'{row['appoinment_id']} | ',
+                f'{row['patient_id']} | ',
+                f'{row['doctor_id']} | ',
+                f'{row['appoinment_date']}'
+            )
+
+def search_appoinments():
+
+    appoinment_id = input('Enter Appoinment_ID: ')
+
+    with open(APPOINMENT_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['appoinment_id'] == appoinment_id:
+
+                print(f'Apponment_ID : {row['appoinment_id']}')
+                print(f'Patient_ID   : {row['patient_id']}')
+                print(f'Doctor_ID    : {row['doctor_id']}')
+                print(f'Date         : {row['appoinment_date']}')
+                return
     
+    print('Appoinment Not Found !')

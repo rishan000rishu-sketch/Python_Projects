@@ -60,4 +60,22 @@ def add_questions(exam_id):
             ])
 
     print('\nQuestion Added Successfully')
-    
+
+def view_exams():
+
+    try:
+        with open(EXAMS_FILE, 'r') as file:
+            reader = csv.DictReader(file)
+
+            print('\n-----AVAILABLE EXAMS-----')
+
+            for row in reader:
+
+                print(
+                    row['exam_id'],
+                    '-',
+                    row['exam_name']
+                )
+
+    except FileNotFoundError:
+        print('No Exams Found !')

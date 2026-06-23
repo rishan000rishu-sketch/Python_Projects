@@ -79,3 +79,23 @@ def view_exams():
 
     except FileNotFoundError:
         print('No Exams Found !')
+
+def take_exam(user_id):
+
+    view_exams()
+
+    exam_id = input('\nEnter Exam_ID To Attend: ')
+
+    questions = []
+
+    with open(QUESTION_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            if row['exam_id'] == exam_id:
+                questions.append(row)
+
+    if len(questions) == 0:
+        print('No Questions Found !')
+        return None,0,0
+    

@@ -1,0 +1,4 @@
+user_id,username,password,role
+U001,admin,admin123,admin
+U002,john,1234,student
+U003,sara,1234,student

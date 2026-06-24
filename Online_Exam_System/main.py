@@ -24,4 +24,37 @@ def admin_menu():
 
         else:
             print('Invalid Choice !')
-    
+
+def student_menu(user):
+
+    while True:
+
+        print("\nSTUDENT MENU")
+        print("1. Attend Exam")
+        print("2. Logout")
+
+        choice = input('Enter Your Choice: ')
+
+        if choice == '1':
+
+            exam_id, score, total = (take_exam(user['user_id']))
+
+            if exam_id:
+
+                save_result(
+                    user['user_id'],
+                    exam_id,
+                    score,
+                    total
+                )
+
+            print('\nExam Completed')
+
+            print(f'Score: {score}/{total}')
+
+        elif choice == '2':
+            break
+
+        else:
+            print('Invalid Choice !')
+            

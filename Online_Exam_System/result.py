@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-RESULT_FILE = (BASE_DIR, 'data/results.csv')
+RESULT_FILE = os.path.join(BASE_DIR, 'data/results.csv')
 
 def save_result(user_id,exam_id,score,total):
 

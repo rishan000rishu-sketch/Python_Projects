@@ -48,13 +48,36 @@ def student_menu(user):
                     total
                 )
 
-            print('\nExam Completed')
+                print('\nExam Completed')
 
-            print(f'Score: {score}/{total}')
+                print(f'Score: {score}/{total}')
 
         elif choice == '2':
             break
 
         else:
             print('Invalid Choice !')
-            
+
+def main():
+
+    while True:
+
+        print('\nONLINE EXAMINATION')
+
+        user = login()
+
+        if not user:
+            print('Invalid Login !')
+            continue
+
+        if user['role'] == 'admin':
+            admin_menu()
+
+        elif user['role'] == 'student':
+            student_menu(user)
+
+        else:
+            print('Invalid Choice !')
+
+if __name__ == '__main__':
+    main()

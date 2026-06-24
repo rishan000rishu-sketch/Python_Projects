@@ -99,3 +99,28 @@ def take_exam(user_id):
         print('No Questions Found !')
         return None,0,0
     
+    score = 0
+    total = len(questions)
+
+    for q in questions:
+
+        print('\n' + q['question'])
+
+        print('1.', q['option1'])
+        print('2.', q['option2'])
+        print('3.', q['option3'])
+        print('4.', q['option4'])
+
+        answer = input('Choose option (1-4): ')
+
+        options = {
+            '1': q['option1'],
+            '2': q['option2'],
+            '3': q['option3'],
+            '4': q['option4']
+        }
+
+        if options.get(answer) == q['answer']:
+            score +=1
+
+    return exam_id, score, total

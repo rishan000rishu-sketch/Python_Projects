@@ -1,10 +1,10 @@
 import csv
 import os
 
-BAS_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DATA_DIR = os.path.join(BAS_DIR, 'data')
-MENU_FILE = os.path.join(BAS_DIR, 'data/menu.csv')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+MENU_FILE = os.path.join(BASE_DIR, 'data/menu.csv')
 
 HEADER = [
     'item_id',
@@ -66,4 +66,3 @@ def view_menu():
                 f'{row['item_name']} | '
                 f'{row['price']}'
             )
-    

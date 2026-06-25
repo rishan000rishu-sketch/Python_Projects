@@ -35,3 +35,28 @@ def place_order():
     if not selected:
         print('\nItem Not Found !')
         return
+    
+    quantity = int(input('Enter Quantity: '))
+
+    price = float(selected['price'])
+
+    total = quantity * price
+
+    order_id = 'O' + str(uuid.uuid4())[:5]
+
+    with open(ORDER_FILE, 'a', newline='') as file:
+        writer = csv.writer(file)
+
+        writer.writerow(
+            [
+                order_id,
+                selected['item_name'],
+                quantity,
+                price,
+                total
+            ]
+        )
+
+    print('Order Placed Successfully.')
+    print('Order ID: ',order_id)
+    

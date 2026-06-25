@@ -1,0 +1,21 @@
+item_id,item_name,price
+I001,Chicken Biryani,180
+I002,Veg Biryani,140
+I003,Fried Rice,120
+I004,Chicken Fried Rice,160
+I005,Gobi Manchurian,110
+I006,Chicken Manchurian,150
+I007,Butter Naan,40
+I008,Paneer Butter Masala,180
+I009,Chicken Curry,200
+I010,Fish Curry,220
+I011,Masala Dosa,80
+I012,Plain Dosa,60
+I013,Idli Sambar,50
+I014,Vada,25
+I015,Poori Masala,70
+I016,Chapati,20
+I017,Egg Roast,90
+I018,Tea,15
+I019,Coffee,20
+I020,Lime Juice,30

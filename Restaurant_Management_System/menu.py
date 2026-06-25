@@ -42,16 +42,28 @@ def add_item():
     item_name = input('Enter Item Name: ')
     price = input('Enter Price: ')
             
-    if os.path.exists(MENU_FILE):
-        with open(MENU_FILE, 'a', newline='') as file:
-            writer = csv.writer(file)
-         
-            writer.writerow(
-                [
-                    item_id,
-                    item_name,
-                    price
-                ])
-            
-        print('\nItem Added Successfully.')
+    with open(MENU_FILE, 'a', newline='') as file:
+        writer = csv.writer(file)
+        
+        writer.writerow(
+            [
+                item_id,
+                item_name,
+                price
+            ])
+        
+    print('\nItem Added Successfully.')
 
+def view_menu():
+
+    with open(MENU_FILE, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+
+            print(
+                f'{row['item_id']} | '
+                f'{row['item_name']} | '
+                f'{row['price']}'
+            )
+    

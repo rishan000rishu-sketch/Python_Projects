@@ -55,3 +55,28 @@ def deposit():
 
     print('\nDeposit Completed Successfully.')
     
+def withdraw():
+
+    account_no = input('Enter Account No: ')
+
+    account = get_account(account_no)
+
+    if not account:
+        print('\nAccount Not Found')
+        return
+    
+    amount = float(input('Enter Withdrawal amount'))
+
+    current_balance = float(account['balance'])
+
+    if amount > current_balance:
+        print('Insufficient Balance')
+        return
+
+    new_balance = float(account['balance']) - amount
+
+    update_balance(account_no, new_balance)
+
+    save_transactions(account_no, 'Withdraw', amount)
+
+    print('\nCash Withdrawal Completed')

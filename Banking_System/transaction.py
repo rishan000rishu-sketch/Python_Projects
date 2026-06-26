@@ -80,3 +80,43 @@ def withdraw():
     save_transactions(account_no, 'Withdraw', amount)
 
     print('\nCash Withdrawal Completed')
+
+def check_balance():
+
+    account_no = input('Enter Account No: ')
+
+    account = get_account(account_no)
+
+    if not account:
+        print('Account Not found !')
+        return
+    
+    if account:
+        print(f'\nCurrent Balance: {account['balance']}')
+    else:
+        print('Account Not Found !')
+
+def transaction_history():
+
+    account_no = input('Enter Account No: ')
+
+    found = False
+
+    with open(TRANSACTIOIN_FILE, 'r') as file:
+        reader= csv.DictReader(file)
+
+        print('\n------Transaction History------\n')
+
+        for row in reader:
+            if row['account_no'] == account_no:
+
+                print(
+                    row['type'],
+                    row['amount'],
+                    row['date_time']
+                )
+                found = True
+
+    if not found:
+        print('No transactions Found')
+    

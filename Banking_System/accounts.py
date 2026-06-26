@@ -6,20 +6,20 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 FILE_NAME = os.path.join(BASE_DIR, 'accounts.csv')
 
+HEADER = [
+    'account_no',
+    'name',
+    'phone',
+    'balance'
+]
+
 def initialize_file():
 
     if not os.path.exists(FILE_NAME):
         with open(FILE_NAME, 'w', newline='') as file:
             writer = csv.writer(file)
 
-            writer.writerow(
-                [
-                    'account_no',
-                    'name',
-                    'phone',
-                    'balance'
-                ]
-            )
+            writer.writerow(HEADER)
 
 def create_account():
 
@@ -55,12 +55,31 @@ def view_accounts():
 def get_account(account_no):
 
     with open(FILE_NAME, 'r') as file:
-        reader = csv.reader(file)
+        reader = csv.DictReader(file)
 
         for row in reader:
 
             if row['account_no'] == account_no:
-                return True
+                return row
             
-    return False
-    
+    return None
+
+def update_balance(account_no, new_balance):
+
+    rows = []
+
+    with open(FILE_NAME, 'r') as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            
+            if row['account_no'] == account_no:
+                row['balance'] = str(new_balance)
+            
+            rows.append(row)
+
+    with open(FILE_NAME, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=HEADER)
+
+        writer.writeheader()
+        writer.writerows(rows)

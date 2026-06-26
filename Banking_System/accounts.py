@@ -41,3 +41,26 @@ def create_account():
 
     print('\nAccount Created Successfully.')
     print(f'Account Number: {account_no}')
+
+def view_accounts():
+
+    with open(FILE_NAME, 'r') as file:
+        reader = csv.reader(file)
+
+        print('\n------Account List------')
+
+        for row in reader:
+            print(row)
+
+def get_account(account_no):
+
+    with open(FILE_NAME, 'r') as file:
+        reader = csv.reader(file)
+
+        for row in reader:
+
+            if row['account_no'] == account_no:
+                return True
+            
+    return False
+    

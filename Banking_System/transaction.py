@@ -34,3 +34,24 @@ def save_transactions(account_no, trans_type, amount):
                 datetime.now()
             ]
         )
+
+def deposit():
+
+    account_no = input('Enter Account No: ')
+
+    account = get_account(account_no)
+
+    if not account:
+        print('\nAccount Not Found !')
+        return
+    
+    amount = float(input('Enter Deposit Amount: '))
+
+    new_balance = float(account['balance']) + amount
+
+    update_balance(account_no, new_balance)
+
+    save_transactions(account_no, 'Deposit', amount)
+
+    print('\nDeposit Completed Successfully.')
+    
